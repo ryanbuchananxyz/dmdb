@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>dmdb</title>
+    </head>
+    <!-- style as catalog to maximise display space -->
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            float: left;
+            text-align: center;
+            padding: 16px;
+        }
+        img {
+            width: auto;
+            height: 256;
+        }
+    </style>
+    <body>
+        {% if user.is_authenticated %}
+        <p>Welcome {{ user.username }}.</p>
+        <a href="admin/">Manage</a><br>
+        <a href="{% url 'logout' %}">Log out</a><br>
+        <p>
+            <!-- pass url to views.index -->
+            <form method="post">
+                {% csrf_token %}
+                <label>Add new title: </label>
+                <input type="text" name="imdb_url">
+                <input type="submit" value="Add">
+            </form>
+        </p>
+            {% for title in titles %}
+            <ul>
+                <li>
+                    <p><b>{{title.title}}</b> <i>({{title.status}})</i></p>
+                    <img src="{{title.poster}}" height="256" width="auto">
+                </li>
+            </ul>
+            {% endfor %}
+        {% else %}
+        <p>You are not logged in.</p>
+        <a href="{% url 'login' %}">Log in</a>
+        {% endif %}
+    </body>
+</html>
