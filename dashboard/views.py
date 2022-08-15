@@ -16,7 +16,7 @@ def index(request):
         new_title = Title(
             title=data['name'],
             poster=data['image'],
-            imdb_URL="https://imdb.org%s" % data['url']
+            imdb_URL="https://www.imdb.com%s" % data['url']
             )
         new_title.save()
     return render(request, 'index.html', {'titles': Title.objects.all()})
