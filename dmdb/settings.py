@@ -19,10 +19,11 @@ USE_TZ = True
 
 ROOT_URLCONF = 'dmdb.urls'
 STATIC_URL = 'static/'
-WSGI_APPLICATION = 'dmdb.wsgi.application'
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+WSGI_APPLICATION = 'dmdb.wsgi.application'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 INSTALLED_APPS = [
     'django.contrib.admin',

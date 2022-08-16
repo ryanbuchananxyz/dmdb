@@ -14,9 +14,10 @@ def index(request):
         data = json.loads(soup.find('script', type='application/ld+json').text)
         # save to database
         new_title = Title(
-            title=data['name'],
-            poster=data['image'],
-            imdb_URL="https://www.imdb.com%s" % data['url']
+            title = data['name'],
+            poster = data['image'],
+            imdb_URL = 'https://www.imdb.com%s' % data['url']
             )
         new_title.save()
+
     return render(request, 'index.html', {'titles': Title.objects.all()})
