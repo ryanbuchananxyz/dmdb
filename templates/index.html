@@ -7,12 +7,11 @@
             ul {
                 list-style-type: none;
                 padding: 0;
+                margin: 0;
+                margin-top: 64px;
             }
             li {
-                float: left;
-                text-align: center;
-                padding: 16px;
-                width: fit-content;
+                display: inline-block;
             }
             img {
                 width: auto;
@@ -32,14 +31,24 @@
             <input type="text" name="imdb_url">
             <input type="submit" value="Add">
         </form>
-        {% for title in titles %}
         <ul>
+            <h3>Movies</h3>
+            {% for movie in movies %}
             <li>
-                <p><b>{{title.title}}</b> <i>({{title.status}})</i></p>
-                <a href="{{title.imdb_URL}}"><img src="{{title.poster}}" height="256" width="auto"></a>
+                <p><b>{{movie.title}}</b> <i>({{movie.status}})</i></p>
+                <a href="{{movie.imdb_URL}}"><img src="{{movie.poster}}" height="256" width="auto"></a>
             </li>
+            {% endfor %}
         </ul>
-        {% endfor %}
+        <ul>
+            <h3>Series</h3>
+            {% for series in tvseries %}
+            <li>
+                <p><b>{{series.title}}</b> <i>({{series.status}})</i></p>
+                <a href="{{series.imdb_URL}}"><img src="{{series.poster}}" height="256" width="auto"></a>
+            </li>
+            {% endfor %}
+        </ul>
         {% else %}
         <p>You are not logged in.</p>
         <a href="{% url 'login' %}">Log in</a>

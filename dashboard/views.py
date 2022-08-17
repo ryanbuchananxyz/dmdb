@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Title
+from .models import Movie, Series
 from bs4 import BeautifulSoup
 import requests
 import json
@@ -13,11 +13,19 @@ def index(request):
         soup = BeautifulSoup(r.content, features='html.parser')
         data = json.loads(soup.find('script', type='application/ld+json').text)
         # save to database
-        new_title = Title(
-            title = data['name'],
-            poster = data['image'],
-            imdb_URL = 'https://www.imdb.com%s' % data['url']
-            )
-        new_title.save()
+        if data['@type'] == 'Movie':
+            new_movie = Movie(
+                title = data['name'],
+                poster = data['image'],
+                imdb_URL = 'https://www.imdb.com%s' % data['url']
+                )
+            new_movie.save()
+        elif data['@type'] == 'TVSeries':
+            new_series = Series(
+                title = data['name'],
+                poster = data['image'],
+                imdb_URL = 'https://www.imdb.com%s' % data['url']
+                )
+            new_series.save()
 
-    return render(request, 'index.html', {'titles': Title.objects.all()})
+    return render(request, 'index.html', {'movies': Movie.objects.all(), 'tvseries': Series.objects.all()})
