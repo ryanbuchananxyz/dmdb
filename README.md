@@ -14,5 +14,5 @@ As a privacy-minded computer user, I noticed a problem. To track their movies an
 
 ## Screenshots
 ![login](https://user-images.githubusercontent.com/110910295/184131447-fd891ba9-8dec-4891-992e-13fb82b9a71b.png)
-![dashboard](https://user-images.githubusercontent.com/110910295/184131496-1cae94f7-1c00-4f08-8964-f3f954b82fcb.png)
-![admin](https://user-images.githubusercontent.com/110910295/184131502-428cefc1-f315-44a2-bfb7-2acdc2935f7a.png)
+![dashboard](https://user-images.githubusercontent.com/110910295/185482039-78b9fb92-4002-44d4-bd1f-33d63fce5593.png)
+![admin](https://user-images.githubusercontent.com/110910295/185482041-8096d5f6-637c-4711-9b58-3ce5134a0808.png)
