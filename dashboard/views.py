@@ -27,5 +27,7 @@ def index(request):
                 imdb_URL = 'https://www.imdb.com%s' % data['url']
                 )
             new_series.save()
-
-    return render(request, 'index.html', {'movies': Movie.objects.all(), 'tvseries': Series.objects.all()})
+    try:
+        return render(request, 'index.html', {'movies': Movie.objects.all(), 'tvseries': Series.objects.all()})
+    except:
+        return render(request, 'index.html')
