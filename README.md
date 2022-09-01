@@ -13,6 +13,6 @@ As a privacy-minded computer user, I noticed a problem. To track their movies an
 3. Run the server: `python manage.py runserver`
 
 ## Screenshots
-![login](https://user-images.githubusercontent.com/110910295/184131447-fd891ba9-8dec-4891-992e-13fb82b9a71b.png)
-![dashboard](https://user-images.githubusercontent.com/110910295/185482039-78b9fb92-4002-44d4-bd1f-33d63fce5593.png)
-![admin](https://user-images.githubusercontent.com/110910295/185482041-8096d5f6-637c-4711-9b58-3ce5134a0808.png)
+![login](https://user-images.githubusercontent.com/110910295/187882681-81898281-0e07-4d17-9a9a-e4a5bca97e1c.png)
+![dashboard](https://user-images.githubusercontent.com/110910295/187882688-6e1d53bf-148d-438f-ab8b-a545a69ad3f5.png)
+![admin](https://user-images.githubusercontent.com/110910295/187882696-c76d529d-a7fa-4bfd-9a3b-1371ab5f16a8.png)
