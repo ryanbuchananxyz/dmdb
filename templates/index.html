@@ -23,21 +23,20 @@
     </head>
     <body>
         {% if user.is_authenticated %}
-        <p>Welcome {{ user.username }}.</p>
-        <a href="admin/">Manage</a><br>
-        <a href="{% url 'logout' %}">Log out</a><br>
+        <p>Welcome <i>{{ user.username }}</i></p>
+        <a href="admin/"><button>Manage</button></a>
+        <a href="{% url 'logout' %}"><button>Log out</button></a><br><br>
         <!-- pass url to views.index -->
         <form method="post">
             {% csrf_token %}
-            <label>Add new title: </label>
-            <input type="text" name="imdb_url">
+            <input type="text" name="imdb_url" placeholder="Add new title">
             <input type="submit" value="Add">
         </form>
         <ul>
             <h3>Movies</h3>
             {% for movie in movies %}
             <li>
-                <p><b>{{movie.title}}</b> <i>({{movie.status}})</i></p>
+                <p>{{movie.title}} <i>({{movie.status}})</i></p>
                 <a href="{{movie.imdb_URL}}"><img src="{{movie.poster}}" height="256" width="auto"></a>
             </li>
             {% endfor %}
@@ -46,14 +45,14 @@
             <h3>Series</h3>
             {% for series in tvseries %}
             <li>
-                <p><b>{{series.title}}</b> <i>({{series.status}})</i></p>
+                <p>{{series.title}} <i>({{series.status}})</i></p>
                 <a href="{{series.imdb_URL}}"><img src="{{series.poster}}" height="256" width="auto"></a>
             </li>
             {% endfor %}
         </ul>
         {% else %}
         <p>You are not logged in.</p>
-        <a href="{% url 'login' %}">Log in</a>
+        <a href="{% url 'login' %}"><button>Log in</button></a>
         {% endif %}
     </body>
 </html>
